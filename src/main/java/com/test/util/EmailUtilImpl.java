@@ -25,7 +25,7 @@ public class EmailUtilImpl implements EmailUtil{
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("Sent email..");
 		sender.send(message);
 		
 
