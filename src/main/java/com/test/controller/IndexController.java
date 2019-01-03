@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.test.entity.IndexUser;
 import com.test.service.IndexUserService;
+import com.test.util.EmailUtil;
 
 @Controller
 public class IndexController {
 	
 	@Autowired
 	private IndexUserService indexUserService;
+	
+	@Autowired
+	private EmailUtil emailUtil;
 	
 	
 	
@@ -45,6 +49,7 @@ public class IndexController {
 		System.out.println("In controller...");
 		
 		indexUserService.createIndexUser(user);
+		emailUtil.send(user.getEmail(), "Testing java mail", "Spring mail api tesing in spring boot application");
 		
 		 return "user_data";
 		
