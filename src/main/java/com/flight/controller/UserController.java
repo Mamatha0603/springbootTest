@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.flight.dao.UserDAO;
@@ -20,7 +22,7 @@ public class UserController {
 	
 	
 
-	@GetMapping("/showRegistration")
+	@RequestMapping("/showRegistration")
 	public String showRegistrationPage() {
 
 		return "registerUser";
@@ -34,8 +36,14 @@ public class UserController {
 		System.out.println("in registerUser method..xxxx"+user.getEmail());
         return "login";
 	}
+	@RequestMapping("/showLogin")
+	public String showLoginPage() {
+
+		return "login";
+	}
 	
-	@PostMapping("/login")
+	
+	@RequestMapping( value="/login",method=RequestMethod.POST)
 	public String login(@RequestParam("email") String email,@RequestParam("password") String password, 
 			ModelMap modelMap) {
 		System.out.println("In login USer Controller method.....");

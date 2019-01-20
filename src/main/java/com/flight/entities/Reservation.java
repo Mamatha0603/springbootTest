@@ -1,13 +1,16 @@
 package com.flight.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Reservation extends AbstractEntity {
 
-	
+	@Column(name = "CHECKED_IN")
 	private Boolean checkedIn;
+	
+	@Column(name = "NUMEBR_OF_BAGS")
 	private int numberOfBags;
 	
 	@OneToOne
