@@ -10,8 +10,8 @@ public class Reservation extends AbstractEntity {
 	@Column(name = "CHECKED_IN")
 	private Boolean checkedIn;
 	
-	@Column(name = "NUMEBR_OF_BAGS")
-	private int numberOfBags;
+	/*@Column(name = "NUMEBR_OF_BAGS")
+	private int numberOfBags;*/
 	
 	@OneToOne
 	private Passenger passenger;
@@ -24,12 +24,12 @@ public class Reservation extends AbstractEntity {
 	public void setCheckedIn(Boolean checkedIn) {
 		this.checkedIn = checkedIn;
 	}
-	public int getNumberOfBags() {
+	/*public int getNumberOfBags() {
 		return numberOfBags;
 	}
 	public void setNumberOfBags(int numberOfBags) {
 		this.numberOfBags = numberOfBags;
-	}
+	}*/
 	public Passenger getPassenger() {
 		return passenger;
 	}

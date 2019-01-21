@@ -24,7 +24,7 @@ public class ReservationRestController {
 	@RequestMapping("/reservations")
 	public @ResponseBody Reservation updateReservation(ReservationUpdateRequest request) {
 		Reservation reservation=reservationDAO.findOne(request.getId());
-		reservation.setNumberOfBags(request.getNoOfBags());
+		//reservation.setNumberOfBags(request.getNoOfBags());
 		reservation.setCheckedIn(request.getCheckedIn());
 		
 		Reservation updatedReservation=reservationDAO.save(reservation);

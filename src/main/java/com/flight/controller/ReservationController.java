@@ -25,6 +25,7 @@ public class ReservationController {
 	public String showCompleteReservationFlights(@RequestParam("flightId") Long flightId,ModelMap modelMap) {
 		Flight flight=flightDAO.findOne(flightId);
 		modelMap.addAttribute("flight", flight);
+		modelMap.addAttribute("reservationRequest", new ReservationRequest());
 		
 		return "completeReservation";
 		
@@ -33,9 +34,12 @@ public class ReservationController {
 	
 	@RequestMapping(value="/completeReservation",method=RequestMethod.POST)
 	public String completeReservation(ReservationRequest request,ModelMap map) {
-		Reservation reservation=reservationService.bookflight(request);
+		
 		System.out.println("In complete Reservation controller..");
-		System.out.println("Reservation Id:"+reservation.getId());
+		System.out.println("Reservation Id:"+request.getFlightId());
+		
+		
+		Reservation reservation=reservationService.bookflight(request);
 		
 		map.addAttribute("msg", "Reservation created successfully and id is:"+reservation.getId());
 		
